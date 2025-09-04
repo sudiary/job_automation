@@ -1,0 +1,27 @@
+<div class="my-jobs">
+    <h3>İlanlarım</h3>
+    {% if jobs %}
+        <ul class="job-list">
+            {% for job in jobs %}
+                <li>
+                    <h4>{{ job.title }}</h4>
+                    <p>{{ job.company_name }} - {{ job.location }}</p>
+                    <div class="job-actions">
+                        <a href="{{ url_for('view_applicants', job_id=job.id) }}" class="btn btn-sm btn-primary">Başvuruları Görüntüle</a>
+                        
+                        <form action="{{ url_for('toggle_job_status', job_id=job.id) }}" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-sm {% if job.status == 'active' %}btn-warning{% else %}btn-success{% endif %}">
+                                {% if job.status == 'active' %}Pasif Yap{% else %}Aktif Yap{% endif %}
+                            </button>
+                        </form>
+                        <form action="{{ url_for('delete_job', job_id=job.id) }}" method="POST" style="display:inline;" onsubmit="return confirm('Bu ilanı silmek istediğinizden emin misiniz?');">
+                            <button type="submit" class="btn btn-sm btn-danger">Sil</button>
+                        </form>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Henüz bir iş ilanı oluşturmadınız.</p>
+    {% endif %}
+</div>

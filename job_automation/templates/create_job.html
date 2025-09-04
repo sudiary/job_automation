@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}İlan Oluştur{% endblock %}
+{% block content %}
+<div class="max-w-2xl mx-auto bg-white/5 p-6 rounded">
+  <h3 class="text-lg font-semibold">Yeni İlan</h3>
+  <form method="post" class="space-y-3 mt-4">
+    <input name="company" placeholder="Şirket" class="w-full p-3 rounded bg-white/5">
+    <input name="position" placeholder="Pozisyon" class="w-full p-3 rounded bg-white/5">
+    <input name="tags" placeholder="Etiketler (virgülle ayrılmış)" class="w-full p-3 rounded bg-white/5">
+    <textarea name="description" placeholder="Açıklama" class="w-full p-3 rounded bg-white/5" rows="6"></textarea>
+    <button class="px-4 py-2 bg-emerald-400 text-slate-900 rounded">Oluştur</button>
+  </form>
+</div>
+{% endblock %}
+

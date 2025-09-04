@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Aday Profili - {{ applicant_user.name }}{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Aday Profili</h4>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ applicant_user.name }}</h5>
+                    <p class="card-text"><strong>E-posta:</strong> {{ applicant_user.email }}</p>
+                    <hr>
+                    <h5>Başvuru Detayları</h5>
+                    <p><strong>Başvurulan Pozisyon:</strong> {{ job.title }}</p>
+                    <p>
+                        <strong>Puan:</strong> <span class="badge bg-primary fs-6">{{ application.score }}</span>
+                    </p>
+                    <p>
+                        <strong>Durum:</strong>
+                        {% if application.status == 'uygun' %}
+                            <span class="badge bg-success">Uygun</span>
+                        {% elif application.status == 'beklemede' %}
+                            <span class="badge bg-warning text-dark">Beklemede</span>
+                        {% else %}
+                            <span class="badge bg-danger">Uygun Değil</span>
+                        {% endif %}
+                    </p>
+                    <hr>
+                    <h5>CV İçeriği (Ayrıştırılmış Metin)</h5>
+                    <pre class="bg-light p-3 rounded" style="white-space: pre-wrap;">{{ application.cv_text }}</pre>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Notlar ve Etiketler</h5>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted">Buraya adayla ilgili not ekleme ve etiketleme özelliği gelecek.</p>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

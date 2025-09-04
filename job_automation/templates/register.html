@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card p-4">
+      <h3 class="mb-3">Kayıt</h3>
+      <form method="post">
+        <div class="row">
+          <div class="col-md-6"><input class="form-control mb-3" name="username" placeholder="Kullanıcı adı" required></div>
+          <div class="col-md-6"><input class="form-control mb-3" name="email" type="email" placeholder="E-posta" required></div>
+        </div>
+        <input class="form-control mb-3" type="password" name="password" placeholder="Şifre" required>
+        <select class="form-select mb-3" name="role">
+          <option value="aday">Aday</option>
+          <option value="işveren">İşveren</option>
+        </select>
+        <button class="btn btn-success w-100">Kaydol</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
